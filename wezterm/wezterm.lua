@@ -1,3 +1,5 @@
+-- ~/.config/wezterm/wezterm.lua
+-- New-Item -Path $home\.config\wezterm -ItemType SymbolicLink -Value $(Resolve-Path .)
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local launch_menu = {}
