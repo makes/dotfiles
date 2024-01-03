@@ -1,0 +1,11 @@
+[user]
+	name = makes
+	email = 1053209+makes@users.noreply.github.com
+
+[core]
+	autocrlf = false
+
+[alias]
+	qc = !git add -A && git commit -m 'quick commit'
+	qp = !git qc && git push
+
