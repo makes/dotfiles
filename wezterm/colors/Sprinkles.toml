@@ -1,0 +1,34 @@
+[colors]
+ansi = [
+    '#282c34',
+    '#c23f4e',
+    '#68a646',
+    '#b09a46',
+    '#4488ff',
+    '#9855c9',
+    '#408891',
+    '#cccccc',
+]
+background = '#000000'
+brights = [
+    '#5a6374',
+    '#e06c75',
+    '#98c379',
+    '#e5c07b',
+    '#7aa2f7',
+    '#9d7cd8',
+    '#56b6c2',
+    '#f2f2f2',
+]
+#cursor_bg = '#52ad70'
+#cursor_border = '#52ad70'
+#cursor_fg = '#000000'
+foreground = '#cccccc'
+#selection_bg = '#40334d'
+#selection_fg = '#cccccc'
+
+[colors.indexed]
+
+[metadata]
+author = 'makes (https://github.com/makes)'
+name = 'Sprinkles'
