@@ -29,6 +29,11 @@ config.window_padding = {
   bottom = '0',
 }
 
+wezterm.on('gui-startup', function()
+  local tab, pane, window = wezterm.mux.spawn_window{}
+  window:gui_window():maximize()
+end)
+
 config.font = wezterm.font('Hack Nerd Font', { weight = 'Regular' })
 config.font_size = 13
 config.cell_width = 1.0
