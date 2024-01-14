@@ -1,3 +1,5 @@
+$env:PAGER = "less"
+
 if ($host.Name -eq 'ConsoleHost')
 {
     Import-Module PSReadLine
