@@ -29,6 +29,7 @@ if (Get-Alias -Name 'r' -ErrorAction SilentlyContinue) {
 }
 
 Set-Alias vim nvim
+Set-Alias docker podman
 Function Refresh-Path { $Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") } 
 Function notes { cd $home/codes/notes && nvim . && cd - }
 Function zsh { sh --login }
