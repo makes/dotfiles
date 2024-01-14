@@ -24,6 +24,10 @@ $PSStyle.FileInfo.Directory = $PSStyle.Foreground.BrightBlue
 $PSStyle.FileInfo.Extension['.xz'] = $PSStyle.FileInfo.Extension['.tgz']
 $PSStyle.FileInfo.Extension['.zst'] = $PSStyle.FileInfo.Extension['.tgz']
 
+if (Get-Alias -Name 'r' -ErrorAction SilentlyContinue) {
+    Remove-Item -Path Alias:r
+}
+
 Set-Alias vim nvim
 Function Refresh-Path { $Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") } 
 Function notes { cd $home/codes/notes && nvim . && cd - }
