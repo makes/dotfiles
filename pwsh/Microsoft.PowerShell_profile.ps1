@@ -1,3 +1,7 @@
+$PROFILEPATH = Split-Path -Parent $PROFILE
+$WORKSTATIONPROFILE = Join-Path $PROFILEPATH "workstation.ps1"
+
+$env:EDITOR = "nvim"
 $env:PAGER = "less"
 
 if ($host.Name -eq 'ConsoleHost')
@@ -6,6 +10,7 @@ if ($host.Name -eq 'ConsoleHost')
     Set-PSReadLineOption -PredictionSource History
     Set-PSReadLineOption -PredictionViewStyle InlineView #ListView
     Set-PSReadLineOption -EditMode Windows
+    Set-PSReadLineOption -Colors @{ InlinePrediction = '#2F7004' } # green
 }
 
 Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
@@ -29,7 +34,17 @@ if (Get-Alias -Name 'r' -ErrorAction SilentlyContinue) {
 }
 
 Set-Alias vim nvim
+Function nvimc { nvim $env:LOCALAPPDATA\nvim\lua }
+
 Set-Alias docker podman
-Function Refresh-Path { $Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") } 
+Function gitbash { sh --login }
 Function notes { cd $home/codes/notes && nvim . && cd - }
-Function zsh { sh --login }
+Function updateconda { conda update -n base -c defaults conda }
+Function gcs([string]$param) { gh copilot suggest $param }
+Function gce([string]$param) { gh copilot explain $param }
+Function gs { git status }
+
+Function Refresh-Path { $Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") } 
+
+# load workstation-specific config
+if (Test-Path -Path $WORKSTATIONPROFILE) { . $WORKSTATIONPROFILE }
