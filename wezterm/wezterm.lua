@@ -66,6 +66,7 @@ config.keys = {
 
 if is_windows() then
   config.default_prog = { 'pwsh.exe', '-NoLogo' }
+  config.default_ssh_auth_sock = "\\\\.\\pipe\\openssh-ssh-agent"
 end
 
 return config
